@@ -1,0 +1,15 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tcp-server
+    ports:
+      - "8888:8888"
+    restart: unless-stopped
+    networks:
+      - tcp-network
+
+networks:
+  tcp-network:
+    driver: bridge
